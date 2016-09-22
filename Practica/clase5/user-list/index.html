@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <script src="./bower_components/jquery/dist/jquery.js"></script>
+        <script src="./bower_components/angular/angular.js"></script>
+        <script src="./bower_components/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="./bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+        <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.css">
+        <!-- Include file with the controller -->
+        <script src="./page.controller.js"></script>
+        <script src="./user-list.controller.js"></script>
+        <script src="./form/form.directive.js"></script>
+        <script src="./list/list.directive.js"></script>
+        <style>
+            .selected {
+                background-color: gray;
+            }
+            label {
+              width: 150px;
+              text-align: right
+            }
+        </style>
+    </head>
+    <body ng-app="userListControllerDemo">
+        <div class="container" ng-controller="pageController as vm">
+            <div class="row">
+                <h2>User List #{{vm.list.length}}</h2>
+            </div>
+            <div class="row">
+              <user-form
+                item="vm.item">
+              </user-form>
+              <div class="col-xs-12">
+                  <div class="form-group">
+                    <input class="btn btn-default" type="submit" value="Add" ng-click="vm.add(vm.item)">
+                    <input class="btn btn-danger" type="submit" value="Remove All" ng-click="vm.removeAll()">
+                  </div>
+              </div>
+                <user-list list="vm.list"></user-list>
+            </div>
+        </div>
+    </body>
+
+</html>

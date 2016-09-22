@@ -1,0 +1,17 @@
+/*
+	genera tags h del 1 al 6 con diferentes caracteristicas
+*/
+
+.headings (@number, @border:6, @color: black, @opacity:0.05) {
+  h@{number} {
+    border: (@border - @number + 1)+px;
+    color: lighten(@color, percentage(@opacity * (@number - 1)));
+  }
+}
+
+.loop(@counter) when (@counter < 7) {
+  .headings(@counter);
+  .loop((@counter + 1));    // next iteration
+}
+
+.loop(1);

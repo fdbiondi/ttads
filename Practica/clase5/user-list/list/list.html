@@ -1,0 +1,12 @@
+<div ng-repeat="user in vm.list track by $index" class="col-xs-12">
+    <h4 ng-class="{selected: user.selected}">
+        <input type="checkbox" ng-model="user.selected">
+        {{user.name}}
+        -
+        {{user.lastname}}
+        -
+        Edad = {{user.age}}
+        <input class="btn btn-default btn-xs" type="button" value="Change Password" ng-click="vm.edit(user)">
+        <input class="btn btn-default btn-xs" type="button" value="X" ng-click="vm.remove($index)">
+    </h4>
+</div>
